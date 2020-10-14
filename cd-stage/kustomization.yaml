@@ -2,7 +2,7 @@ namespace: reverse-words-stage
 commonLabels:
   app: reversewords-stage
 bases:
-- github.com/AltugYildirim/GitOps-Advanced?ref=main
+- github.com/AltugYildirim/GitOps-Advanced?ref=config
 resources:
 - namespace.yaml
 - ingress.yaml
