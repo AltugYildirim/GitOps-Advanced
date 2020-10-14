@@ -1,16 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: reverse-words
   labels:
     app: reverse-words
-  name: reverse-words
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reverse-words
   template:
+    metadata:
+      labels:
+        app: reverse-words
     spec:
       containers:
-      - env:
+      - name: reverse-words
+        image: quay.io/mavazque/tekton-reversewords:latest
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
         - name: RELEASE
-          value: Stage Release
-        - $patch: replace
-        image: quay.io/mavazque/tekton-reversewords:8e8629cf2ffae4749279c2e5e016dce436d0110e
-        name: reverse-words
+          value: "Base release"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          timeoutSeconds: 2
+          periodSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+          periodSeconds: 15
