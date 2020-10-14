@@ -20,7 +20,7 @@ spec:
   type: image
   params:
   - name: url
-    value: quay.io/altugyildirim/reversewords
+    value: quay.io/altugyildirim/reversewords/reversewords
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
@@ -100,7 +100,7 @@ spec:
       - name: image-repo
         value: "quay.io/altugyildirim/reversewords"
       - name: new-image-url
-        value: "quay.io/altugyildirim/reversewords:$(params.imageTag)"
+        value: "quay.io/altugyildirim/reversewords/reversewords:$(params.imageTag)"
       - name: source-branch
         value: "stage"
       - name: source-repo

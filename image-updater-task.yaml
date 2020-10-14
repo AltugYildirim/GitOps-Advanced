@@ -63,5 +63,5 @@ spec:
         - name: AUTH_TOKEN
           valueFrom:
             secretKeyRef:
-              name: image-updater-secret
+              name: github-secrets
               key: token
