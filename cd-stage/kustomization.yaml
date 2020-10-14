@@ -2,10 +2,9 @@ namespace: reverse-words-stage
 commonLabels:
   app: reversewords-stage
 bases:
-- github.com/mvazquezc/reverse-words-cicd?ref=config
+- github.com/AltugYildirim/GitOps-Advanced?ref=main
 resources:
 - namespace.yaml
 - ingress.yaml
 patchesStrategicMerge:
 - deployment.yaml
-
