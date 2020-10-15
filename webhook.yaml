@@ -32,7 +32,7 @@ spec:
           name: reverse-words-build-pipeline
         serviceAccountNames:
           - taskName: build-and-push
-            serviceAccountName: reversewords-pipeline
+            serviceAccountName: pipeline
         params:
           - name: imageTag
             value: $(params.gitrevision)
@@ -49,7 +49,7 @@ kind: EventListener
 metadata:
   name: reversewords-webhook
 spec:
-  serviceAccountName: reversewords-pipeline
+  serviceAccountName: pipeline
   triggers:
     - name: git-reversewords-trigger
       interceptors:
@@ -61,6 +61,6 @@ spec:
               - push
       bindings:
         - name: pipeline-binding
-          ref: <git-triggerbinding>
+          #ref: <git-triggerbinding>
       template:
         name: reverseword-build-triggertemplate

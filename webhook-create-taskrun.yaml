@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: create-api-repo-webhook-run-2
+  namespace: ci
+  labels:
+    app.kubernetes.io/managed-by: tekton-pipelines
+    tekton.dev/task: create-webhook
+spec:
+  params:
+    - name: GitHubOrg
+      value: altugyildirim
+    - name: GitHubUser
+      value: altugyildirim
+    - name: GitHubRepo
+      value: reverse-words
+    - name: GitHubSecretName
+      value: webhook-secret
+    - name: GitHubAccessTokenKey
+      value: token
+    - name: GitHubSecretStringKey
+      value: secret
+    - name: ExternalDomain
+      value: 'http://event-listener-ci.apps.ocp.dataserv.local'
+  serviceAccountName: pipeline
+  taskRef:
+    kind: Task
+    name: create-webhook
+  timeout: 16m40s
