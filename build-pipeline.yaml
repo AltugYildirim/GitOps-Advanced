@@ -104,7 +104,7 @@ spec:
       - name: source-branch
         value: "stage"
       - name: source-repo
-        value: "https://github.com/altugyildirim/GitOps-Advanced" ##edited
+        value: "altugyildirim/GitOps-Advanced" ##edited
       - name: update-key
         value: "spec.template.spec.containers.0.image"
       - name: insecure
