@@ -1,15 +1,17 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
+kind: Route
+apiVersion: route.openshift.io/v1
 metadata:
-  name: reverse-words
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
+  name: reverse
+  namespace: reverse-words-stage
+  labels:
+    app: reverse-words
+    app.kubernetes.io/instance: dev-reversewords
 spec:
-  rules:
-  - host: reversewords-dev.apps.ocp.dataserv.local
-    http:
-      paths:
-      - backend:
-          serviceName: reverse-words
-          servicePort: http
+  host: reversewords-stage.apps.ocp.dataserv.local
+  to:
+    kind: Service
+    name: reverse-words
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
