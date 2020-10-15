@@ -12,5 +12,5 @@ spec:
         - name: RELEASE
           value: Production release
         - $patch: replace
-        image: 'quay.io/altugyildirim/reversewords:latest'
+        image: quay.io/altugyildirim/reversewords:latest
         name: reverse-words
