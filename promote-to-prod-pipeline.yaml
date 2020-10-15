@@ -6,7 +6,7 @@ spec:
   type: git
   params:
   - name: url
-    value: github.com/AltugYildirim/GitOps-Advanced.git
+    value: https://github.com/AltugYildirim/GitOps-Advanced.git
   - name: revision
     value: config
   - name: sslVerify
