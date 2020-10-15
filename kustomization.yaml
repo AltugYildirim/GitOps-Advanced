@@ -5,6 +5,6 @@ bases:
 - github.com/AltugYildirim/GitOps-Advanced/?ref=config
 resources:
 - namespace.yaml
-- ingress.yaml
+- route.yaml
 patchesStrategicMerge:
 - deployment.yaml
