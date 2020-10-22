@@ -2,8 +2,10 @@ argocd cluster list
 
 argocd repo add https://github.com/AltugYildirim/GitOpsWithOpenShift.git
 
-argocd app create --project default --name stage-reversewords --repo https://github.com/AltugYildirim/GitOps-Advanced.git --path declarationFiles --dest-server https://kubernetes.default.svc --dest-namespace advancedgitops-stage --revision stage --sync-policy automated --self-heal 
+argocd app create --project default --name stage-reversewords --repo https://github.com/AltugYildirim/GitOps-Advanced.git --path . --dest-server https://kubernetes.default.svc --dest-namespace reverse-words-stage --revision stage --sync-policy automated --self-heal
 
 argocd app sync dev-reversewords
 
 argocd app get dev-reverseword
+
+kubectl patch app stage-reversewords -n argocd -p '{"metadata": {"annotations": {"recipients.argocd-notifications.argoproj.io":"slack:stage-sync-status"}}}' --type merge
