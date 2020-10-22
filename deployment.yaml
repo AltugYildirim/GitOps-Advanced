@@ -12,5 +12,5 @@ spec:
         - name: RELEASE
           value: Stage Release
         - $patch: replace
-        image: quay.io/altugyildirim/reversewords:workshop
+        image: quay.io/altugyildirim/reversewords:hosgeldiniz
         name: reverse-words
