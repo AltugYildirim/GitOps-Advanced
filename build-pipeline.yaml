@@ -6,9 +6,9 @@ spec:
   type: git
   params:
   - name: url
-    value: https://github.com/AltugYildirim/reverse-words.git
+    value: https://github.com/AltugYildirim/reverse-words.git ##https://github.com/AltugYildirim/DO288-apps.git
   - name: revision
-    value: main
+    value: master
   - name: sslVerify
     value: "false"
 ---
